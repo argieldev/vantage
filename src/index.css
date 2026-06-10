@@ -1,1 +1,25 @@
 @import "tailwindcss";
+
+@theme {
+  --color-secondary: #64748b;
+
+  /* Total Students */
+  --color-accent-teal: #14b8a6;
+  --color-accent-teal-bg: rgba(20, 184, 166, 0.2);
+
+  /* Average Grade */
+  --color-accent-amber: #f59e0b;
+  --color-accent-amber-bg: rgba(245, 158, 11, 0.2);
+
+  /* At-Risk Students */
+  --color-accent-red: #ef4444;
+  --color-accent-red-bg: rgba(239, 68, 68, 0.2);
+
+  /* Classes */
+  --color-accent-violet: #8b5cf6;
+  --color-accent-violet-bg: rgba(139, 92, 246, 0.2);
+
+  /* Pass Rate */
+--color-accent-green: #22c55e;
+--color-accent-green-bg: rgba(34, 197, 94, 0.2);
+}
