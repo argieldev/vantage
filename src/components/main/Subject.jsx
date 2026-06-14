@@ -1,4 +1,10 @@
+import { useState } from "react";
+
 function Subject() {
+  const [dropDown, setDropDown] = useState({
+    SubPeriod1: true,
+  });
+
   return (
     <>
       <div className="flex-1 ml-64">
@@ -68,8 +74,103 @@ function Subject() {
               </div>
             </div>
           </div>
-          <div className="fixed right-9 top-14 bottom-2 w-96 border border-gray-300 rounded-md overflow-y-auto ">
-            <h1>Hi</h1>
+          <div className="fixed right-9 top-14 bottom-2 w-96 flex flex-col items-center p-2 gap-4 border border-gray-300 rounded-md overflow-y-auto ">
+            <div className="w-full flex justify-end">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="32"
+                height="32"
+                color="#000000"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 6L6.00081 17.9992M17.9992 18L6 6.00085"></path>
+              </svg>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <p className="text-2xl font-medium">John Doe</p>
+              <p className="text-sm text-gray-500">Grade report</p>
+            </div>
+            <div className="w-full flex flex-col items-center justify-center">
+              <button
+                className="w-72 p-2 flex items-center justify-between font-medium border border-gray-300 rounded-md"
+                onClick={() =>
+                  setDropDown((prev) => ({
+                    ...prev,
+                    SubPeriod1: !prev.SubPeriod1,
+                  }))
+                }
+              >
+                SubPeriod 1{" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="16"
+                  height="16"
+                  color="currentColor"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className={`transition-all .3s ${dropDown.SubPeriod1 == true ? "-rotate-180" : ""}`}
+                >
+                  <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"></path>
+                </svg>
+              </button>
+              <section className={`w-72 p-2 flex flex-col ${dropDown.SubPeriod1 == true ? "flex" : "hidden"}`}>
+                <dl>
+                  <h2 className="font-medium text-gray-400">
+                    Quizzes and Activites
+                  </h2>
+                  <div className="flex flex-col justify-between text-sm">
+                    <dt>Quiz 1</dt>
+                    <dd className="flex items-center justify-center gap-2">
+                      <div
+                        className="h-1 bg-black rounded-full"
+                        style={{ width: `${(69 / 70) * 100}%` }}
+                      />
+                      10/10
+                    </dd>
+                  </div>
+                  <div className="flex justify-between text-sm mb-4">
+                    <dd className="text-gray-400">Sub Total</dd>
+                    <dd>10/10</dd>
+                  </div>
+
+                  <h2 className="font-medium text-gray-400">
+                    Performance Tasks
+                  </h2>
+                  <div className="flex flex-col justify-between text-sm">
+                    <dt>Performance Task</dt>
+                    <dd className="flex items-center justify-center gap-2">
+                      <div
+                        className="h-1 bg-black rounded-full"
+                        style={{ width: `${(69 / 70) * 100}%` }}
+                      />
+                      40/40
+                    </dd>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <dd className="text-gray-400">Sub Total</dd>
+                    <dd>40/40</dd>
+                  </div>
+
+                  <h2 className="font-medium text-gray-400">Exam</h2>
+                  <div className="flex items-center justify-between gap-2 text-sm">
+                    <div
+                      className="h-1 bg-black rounded-full"
+                      style={{ width: `${(69 / 70) * 100}%` }}
+                    />
+                    <dd>69/70</dd>
+                  </div>
+                </dl>
+              </section>
+            </div>
           </div>
         </div>
       </div>
