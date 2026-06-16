@@ -7,6 +7,10 @@
   --color-accent-teal: #14b8a6;
   --color-accent-teal-bg: rgba(20, 184, 166, 0.2);
 
+  /* Create */
+  --color-accent-blue: #60a5fa;
+  --color-accent-blue-bg: rgba(96, 165, 250, 0.2);
+
   /* Average Grade */
   --color-accent-amber: #f59e0b;
   --color-accent-amber-bg: rgba(245, 158, 11, 0.2);
@@ -20,6 +24,6 @@
   --color-accent-violet-bg: rgba(139, 92, 246, 0.2);
 
   /* Pass Rate */
---color-accent-green: #22c55e;
---color-accent-green-bg: rgba(34, 197, 94, 0.2);
+  --color-accent-green: #22c55e;
+  --color-accent-green-bg: rgba(34, 197, 94, 0.2);
 }

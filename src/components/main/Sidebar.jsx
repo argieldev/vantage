@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 function Sidebar() {
   const [displayClasses, setDisplayClasses] = useState(false);
-  const [importClass, setImportClass] = useState(false);
 
   const subjects = ["Subject"];
+  const currLocation = useLocation();
 
   return (
     <>
-      <aside className="fixed w-64 h-full border-r border-gray-300">
+      <aside className={`fixed flex flex-col w-64 h-full border-r border-gray-300 ${currLocation.pathname === "/create" ? "hidden" : ""}`}>
         {/* User Info and Notifications */}
         <nav className="h-12 p-2 flex items-center justify-between border-b border-gray-300">
           <div className="flex items-center gap-2 select-none cursor-pointer">
@@ -24,9 +24,9 @@ function Sidebar() {
                 color="currentColor"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="1"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"></path>
               </svg>
@@ -40,8 +40,8 @@ function Sidebar() {
             color="currentColor"
             fill="none"
             stroke="currentColor"
-            stroke-width="1"
-            stroke-linejoin="round"
+            strokeWidth="1"
+            strokeLinejoin="round"
             className="cursor-pointer"
           >
             <path d="M2 6L8.91302 9.91697C11.4616 11.361 12.5384 11.361 15.087 9.91697L22 6"></path>
@@ -62,8 +62,8 @@ function Sidebar() {
               color="currentColor"
               fill="none"
               stroke="currentColor"
-              stroke-width="1"
-              stroke-linejoin="round"
+              strokeWidth="1"
+              strokeLinejoin="round"
             >
               <path d="M10.5 8.75V6.75C10.5 5.10626 10.5 4.28439 10.046 3.73121C9.96291 3.62995 9.87005 3.53709 9.76879 3.45398C9.21561 3 8.39374 3 6.75 3C5.10626 3 4.28439 3 3.73121 3.45398C3.62995 3.53709 3.53709 3.62995 3.45398 3.73121C3 4.28439 3 5.10626 3 6.75V8.75C3 10.3937 3 11.2156 3.45398 11.7688C3.53709 11.8701 3.62995 11.9629 3.73121 12.046C4.28439 12.5 5.10626 12.5 6.75 12.5C8.39374 12.5 9.21561 12.5 9.76879 12.046C9.87005 11.9629 9.96291 11.8701 10.046 11.7688C10.5 11.2156 10.5 10.3937 10.5 8.75Z"></path>
               <path d="M7.75 15.5H5.75C5.05222 15.5 4.70333 15.5 4.41943 15.5861C3.78023 15.78 3.28002 16.2802 3.08612 16.9194C3 17.2033 3 17.5522 3 18.25C3 18.9478 3 19.2967 3.08612 19.5806C3.28002 20.2198 3.78023 20.72 4.41943 20.9139C4.70333 21 5.05222 21 5.75 21H7.75C8.44778 21 8.79667 21 9.08057 20.9139C9.71977 20.72 10.22 20.2198 10.4139 19.5806C10.5 19.2967 10.5 18.9478 10.5 18.25C10.5 17.5522 10.5 17.2033 10.4139 16.9194C10.22 16.2802 9.71977 15.78 9.08057 15.5861C8.79667 15.5 8.44778 15.5 7.75 15.5Z"></path>
@@ -85,16 +85,16 @@ function Sidebar() {
                 color="currentColor"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="1"
-                stroke-linejoin="round"
+                strokeWidth="1"
+                strokeLinejoin="round"
               >
                 <path
                   d="M11.9458 6L9.58384 17.0855C9.39588 17.9677 9.49933 18.298 10.1472 18.9315L12.7673 21.4934C13.1127 21.8311 13.2854 22 13.5 22C13.7146 22 13.8873 21.8311 14.2327 21.4934L16.8528 18.9315C17.5007 18.298 17.6041 17.9677 17.4162 17.0855L15.0542 6"
-                  stroke-linecap="round"
+                  strokeLinecap="round"
                 ></path>
                 <path
                   d="M10.5568 3.12403C10.4894 2.60014 10.4557 2.3382 10.6093 2.1691C10.763 2 11.0347 2 11.5781 2H15.4219C15.9653 2 16.237 2 16.3907 2.1691C16.5443 2.3382 16.5106 2.60014 16.4432 3.12403L16.3924 3.51931C16.2498 4.62718 16.1786 5.18111 15.8224 5.54049C15.7645 5.59888 15.7018 5.65262 15.635 5.70117C15.2238 6 14.6492 6 13.5 6C12.3508 6 11.7762 6 11.365 5.70117C11.2982 5.65262 11.2355 5.59888 11.1776 5.54049C10.8214 5.18111 10.7502 4.62718 10.6076 3.5193L10.5568 3.12403Z"
-                  stroke-linecap="round"
+                  strokeLinecap="round"
                 ></path>
                 <path d="M9.99988 15C9.39212 15.6925 8.87749 16 8.49988 16C8.0155 16 7.14348 14.7794 6.75647 13.8954C6.57487 13.4806 6.48408 13.2732 6.50214 13.0108C6.52019 12.7484 6.63912 12.5565 6.87698 12.1727C8.22201 10.0024 10.5144 8.02113 11.9999 6"></path>
               </svg>
@@ -108,31 +108,15 @@ function Sidebar() {
                   color="currentColor"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className={`-rotate-90 transition-transform ${displayClasses ? "rotate-0" : ""}`}
                 >
                   <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"></path>
                 </svg>
               </span>
             </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="16"
-              height="16"
-              color="currentColor"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              onClick={() => setImportClass(!importClass)}
-              className="opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
-            >
-              <path d="M12 4V20M20 12H4"></path>
-            </svg>
           </li>
         </ul>
         {/* Subject List (conditionally rendered) */}
@@ -150,30 +134,6 @@ function Sidebar() {
           ))}
         </ul>
       </aside>
-      <div
-        onClick={() => setImportClass(!importClass)}
-        className={`w-full h-full fixed bg-black/30 border z-1 ${importClass == true ? "flex" : "hidden"}`}
-      ></div>
-      <div
-        className={`absolute left-[25%] top-[25%] w-150 h-75 flex flex-col items-center justify-center gap-4 bg-white border border-gray-300 rounded-md z-2 ${importClass == true ? "flex" : "hidden"}`}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          width="32"
-          height="32"
-          color="#64748b"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M2.99994 17C2.99994 17.93 2.99994 18.395 3.10216 18.7765C3.37956 19.8117 4.18821 20.6204 5.22348 20.8978C5.60498 21 6.06997 21 6.99994 21L16.9999 21C17.9299 21 18.3949 21 18.7764 20.8978C19.8117 20.6204 20.6203 19.8117 20.8977 18.7765C20.9999 18.395 20.9999 17.93 20.9999 17"></path>
-          <path d="M16.5 7.49993C16.5 7.49993 13.1858 2.99997 12 2.99996C10.8141 2.99995 7.50002 7.49996 7.50002 7.49996M12 3.99996V16"></path>
-        </svg>
-        <h2>Drag files here</h2>
-      </div>
     </>
   );
 }
