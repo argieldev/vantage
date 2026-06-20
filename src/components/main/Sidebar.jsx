@@ -4,14 +4,14 @@ import { NavLink, useLocation } from "react-router-dom";
 function Sidebar() {
   const [displayClasses, setDisplayClasses] = useState(false);
 
-  const subjects = ["Subject"];
+  const subjects = [""];
   const currLocation = useLocation();
 
   return (
     <>
       <aside className={`fixed flex flex-col w-64 h-full border-r border-gray-300 ${currLocation.pathname === "/create" ? "hidden" : ""}`}>
         {/* User Info and Notifications */}
-        <nav className="h-12 p-2 flex items-center justify-between border-b border-gray-300">
+        <nav className="h-12 p-2 flex items-center justify-between">
           <div className="flex items-center gap-2 select-none cursor-pointer">
             <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
             <h2 className="flex items-center gap-1 text-sm font-medium">
@@ -126,7 +126,7 @@ function Sidebar() {
           {subjects.map((subject, index) => (
             <NavLink
               key={index}
-              to="/subject"
+              to="/"
               className="text-sm hover:bg-gray-200 rounded-md px-2 py-1"
             >
               {subject}

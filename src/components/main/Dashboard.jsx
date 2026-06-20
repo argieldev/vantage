@@ -75,8 +75,8 @@ function Content() {
 
   return (
     <>
-      <div className="flex-1 ml-64">
-        <nav className="h-12 flex items-center justify-between px-9 py-2 border-b border-gray-300">
+      <div className="flex-1 ml-64 bg-slate-100 overflow-y-auto">
+        <nav className="h-12 flex items-center justify-between px-9 py-2 bg-white border-b border-gray-300">
           <h1 className="text-md font-medium">Dashboard</h1>
           <NavLink
             className="flex items-center justify-center p-1 gap-2 bg-accent-blue border rounded-md cursor-pointer"
@@ -104,7 +104,7 @@ function Content() {
           {/* Grid of cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
             {/* Example card */}
-            <div className="flex flex-col px-2 py-4 gap-4 rounded-md border border-gray-300 transition-all duration-200 hover:border-accent-teal hover:shadow shadow-accent-teal-bg">
+            <div className="flex flex-col px-2 py-4 gap-4 rounded-md bg-white border border-gray-300 transition-all duration-200 hover:border-accent-teal hover:shadow shadow-accent-teal-bg">
               <div className="flex justify-between gap-2">
                 <div className="p-2 bg-accent-teal-bg rounded-md w-max">
                   <svg
@@ -154,7 +154,7 @@ function Content() {
                 <p className="text-2xl font-bold">1,234</p>
               </div>
             </div>
-            <div className="flex flex-col px-2 py-4 gap-4 rounded-md border border-gray-300 transition-all duration-200 hover:border-accent-amber hover:shadow shadow-accent-amber-bg">
+            <div className="flex flex-col px-2 py-4 gap-4 rounded-md bg-white border border-gray-300 transition-all duration-200 hover:border-accent-amber hover:shadow shadow-accent-amber-bg">
               <div className="flex justify-between gap-2">
                 <div className="p-2 bg-accent-amber-bg rounded-md w-max">
                   <svg
@@ -216,7 +216,7 @@ function Content() {
                 <p className="text-2xl font-bold">85.5%</p>
               </div>
             </div>
-            <div className="flex flex-col px-2 py-4 gap-4 rounded-md border border-gray-300 transition-all duration-200 hover:border-accent-red hover:shadow shadow-accent-red-bg">
+            <div className="flex flex-col px-2 py-4 gap-4 rounded-md bg-white border border-gray-300 transition-all duration-200 hover:border-accent-red hover:shadow shadow-accent-red-bg">
               <div className="flex justify-between gap-2">
                 <div className="p-2 bg-accent-red-bg rounded-md w-max">
                   <svg
@@ -264,7 +264,7 @@ function Content() {
                 <p className="text-2xl font-bold">12</p>
               </div>
             </div>
-            <div className="flex flex-col px-2 py-4 gap-4 rounded-md border border-gray-300 transition-all duration-200 hover:border-accent-green hover:shadow shadow-accent-green-bg">
+            <div className="flex flex-col px-2 py-4 gap-4 rounded-md bg-white border border-gray-300 transition-all duration-200 hover:border-accent-green hover:shadow shadow-accent-green-bg">
               <div className="flex justify-between gap-2">
                 <div className="p-2 bg-accent-green-bg rounded-md w-max">
                   <svg
@@ -310,14 +310,15 @@ function Content() {
                 <p className="text-2xl font-bold">85.5%</p>
               </div>
             </div>
-            <div className="w-170 flex flex-col px-2 py-4 gap-4 rounded-md border border-gray-300 transition-all duration-200 hover:border-accent-green hover:shadow shadow-accent-green-bg">
-              <h1 className="text-md font-medium">On Going Activities</h1>
+            <div className="w-170 flex flex-col px-2 py-4 gap-4 rounded-md bg-white border border-gray-300 transition-all duration-200 hover:border-accent-green hover:shadow shadow-accent-green-bg">
+              <h1 className="text-md font-medium">Change Log</h1>
               <div className="flex-1 flex items-center justify-center text-sm text-muted-foreground">
-                None
+                <span className="font-medium text-gray-400">None</span>
               </div>
             </div>
           </div>
 
+          {/* This is connected to the cards above*/}
           {showDetails && cardDetails[selectedCard] && (
             <div
               className="fixed top-12 right-0 w-max flex flex-col p-2 items-start origin-top font-normal bg-white border border-gray-300 rounded-md shadow"
@@ -331,7 +332,7 @@ function Content() {
             </div>
           )}
 
-          <div className="flex gap-4 items-stretch [&_*:focus]:outline-none">
+          <div className="flex gap-4 bg-white border border-gray-300 rounded-md items-stretch [&_*:focus]:outline-none">
             <div className="flex flex-col min-w-0 p-2 gap-8 rounded-md">
               <h1 className="text-md font-medium px-2 py-2">
                 Average Grades per Term
@@ -368,7 +369,7 @@ function Content() {
                 />
               </LineChart>
             </div>
-            <div className="flex flex-col flex-1 gap-8 border border-transparent rounded-md p-2 hover:border-gray-300 hover:shadow transition-colors">
+            <div className="flex flex-col flex-1 gap-8 border border-transparent rounded-md p-2">
               <div className="flex items-center justify-between">
                 <h1 className="text-md font-medium px-2 py-2">Top Students</h1>
                 <button className="relative flex gap-10 bg-gray-100 font-medium px-2 py-2 rounded-md cursor-pointer">
@@ -490,44 +491,6 @@ function Content() {
             </div>
           </div>
         </main>
-      </div>
-      {/* temp */}
-      <div
-        onClick={() => setImportClass(!importClass)}
-        className={`w-full h-full fixed bg-black/30 border z-1 ${importClass == true ? "flex" : "hidden"}`}
-      ></div>
-      <input
-        type="file"
-        ref={fileInputRef}
-        className="hidden"
-        onChange={(e) => {
-          const file = e.target.files[0];
-
-          if (!file) return;
-
-          console.log(file);
-          setUploadedFile(file);
-        }}
-      />
-
-      <div
-        onClick={() => fileInputRef.current.click()}
-        onDragOver={(e) => e.preventDefault()}
-        onDrop={(e) => {
-          e.preventDefault();
-
-          const file = e.dataTransfer.files[0];
-
-          if (!file) return;
-
-          console.log(file);
-          setUploadedFile(file);
-        }}
-        className={`absolute left-[25%] top-[25%] w-150 h-75 flex flex-col items-center justify-center gap-4 bg-white border border-gray-300 rounded-md z-2 ${
-          importClass ? "flex" : "hidden"
-        }`}
-      >
-        <h2>Drag files here or click to select</h2>
       </div>
     </>
   );

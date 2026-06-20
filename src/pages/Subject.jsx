@@ -16,7 +16,7 @@ function Subject() {
             {/* Search Bar */}
             <div className="flex items-center gap-2">
               <div className="flex-1">
-                <div className="flex items-center gap-2 px-2 py-1 bg-gray-200 rounded">
+                <div className="flex items-center gap-2 p-2 bg-gray-200 rounded">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -74,23 +74,7 @@ function Subject() {
               </div>
             </div>
           </div>
-          <div className="fixed right-9 top-14 bottom-2 w-96 flex flex-col items-center p-2 gap-4 border border-gray-300 rounded-md overflow-y-auto ">
-            <div className="w-full flex justify-end">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="32"
-                height="32"
-                color="#000000"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M18 6L6.00081 17.9992M17.9992 18L6 6.00085"></path>
-              </svg>
-            </div>
+          <div className="fixed right-9 top-14 bottom-2 w-96 flex flex-col items-center px-2 py-4 gap-4 border border-gray-300 rounded-md overflow-y-auto ">
             <div className="flex flex-col items-center gap-2">
               <p className="text-2xl font-medium">John Doe</p>
               <p className="text-sm text-gray-500">Grade report</p>
